@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade Checker</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; margin-top: 50px;">
+  <h1>Grade Checker</h1>
+  <p id="result"></p>
+
+  <script>
+    // Step 1: Capture input
+    let name = prompt("Enter your name:");
+    let marks = prompt("Enter your marks (0 - 100):");
+
+    // Convert marks from string to number
+    marks = Number(marks);
+
+    // Step 2: Decide grade using conditionals
+    let grade;
+    if (marks >= 80) {
+      grade = "A";
+    } else if (marks >= 60) {
+      grade = "B";
+    } else if (marks >= 40) {
+      grade = "C";
+    } else {
+      grade = "Fail ";
+    }
+
+    // Step 3: Display output
+    document.getElementById("result").innerText =
+      name + ", your grade is: " + grade;
+  </script>
+</body>
+</html>

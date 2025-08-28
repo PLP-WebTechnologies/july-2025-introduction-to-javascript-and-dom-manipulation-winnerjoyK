@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3 DOM Interactives</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f4;
+    }
+    .box {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1> DOM Interactives</h1>
+
+  <!-- 1. Change Text -->
+  <div class="box">
+    <h2 id="titleText">Original Heading</h2>
+    <button id="changeTextBtn">Change Text</button>
+  </div>
+
+  <!-- 2. Toggle Class -->
+  <div class="box">
+    <p id="highlightPara">Click the button to highlight this text.</p>
+    <button id="toggleClassBtn">Toggle Highlight</button>
+  </div>
+
+  <!-- 3. Add Items Dynamically -->
+  <div class="box">
+    <h2>Dynamic List</h2>
+    <input type="text" id="itemInput" placeholder="Enter an item">
+    <button id="addItemBtn">Add Item</button>
+    <ul id="itemList"></ul>
+  </div>
+
+  <script>
+    // 1. Change Text
+    document.getElementById("changeTextBtn").addEventListener("click", function() {
+      document.getElementById("titleText").innerText = " Text Changed!";
+    });
+
+    // 2. Toggle Highlight Class
+    document.getElementById("toggleClassBtn").addEventListener("click", function() {
+      document.getElementById("highlightPara").classList.toggle("highlight");
+    });
+
+    // 3. Add Items Dynamically
+    document.getElementById("addItemBtn").addEventListener("click", function() {
+      let input = document.getElementById("itemInput");
+      let newItem = input.value.trim();
+
+      if (newItem !== "") {
+        let li = document.createElement("li");
+        li.textContent = newItem;
+        document.getElementById("itemList").appendChild(li);
+        input.value = ""; // clear input
+      } else {
+        alert("Please enter an item before adding!");
+      }
+    });
+  </script>
+</body>
+</html>
